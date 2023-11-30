@@ -3,7 +3,6 @@ const userData = require('./../utils/mock/user.mock')
 const findUsersBy = (params={}) => {
     const {filters} = params;
     let findUsers = userData ? userData : [];
-    console.log(findUsers)
     if (filters) {
         const {uname, fname, gender} = filters;
         if (uname) {
@@ -32,25 +31,12 @@ const insertUser = (params={}) => {
 }
 
 const updateUserBy = (params, id) => {
-    const { uname, fname, gender } = params;
-    const userIndex = userData.findIndex((user) => user.id === id);
-    if (userIndex === -1) {
-        return 0; 
-    }
-    userData[userIndex].uname = uname;
-    userData[userIndex].fname = fname;
-    userData[userIndex].gender = gender;
-    return 1;
-};
 
-const deleteUserBy = (id) => {
-    const userIndex = userData.findIndex((user) => user.id === id);
-    if (userIndex === -1) {
-        return 0; 
-    }
-    userData.splice(userIndex, 1);
-    return 1;
-};
+}
+
+const deleteUserBy = (params, id) => {
+
+}
 
 
 module.exports = {
