@@ -1,7 +1,16 @@
-const express = require('express');
-const MOCK_DATA = require('../utils/mock/post.mock');
+const express = require('express')
 const router = express.Router();
 
+const MOCK_DATA = [
+    {
+        title: 'Test',
+        des: 'Test'
+    },
+    {
+        title: 'Test 1',
+        des: 'Test 1'
+    }
+]
 
 router.get('/all', (req, res) => {
     return res.json(MOCK_DATA)
@@ -9,12 +18,7 @@ router.get('/all', (req, res) => {
 
 
 router.post('/create', (req, res) => {
-    MOCK_DATA.push({
-        fname: 'test them moi',
-        uname: 'test',
-        gender:'chua xac dinh'
-    })
-    return res.json(MOCK_DATA)
+    return res.json('Create post')
 })
 
 module.exports = router;
