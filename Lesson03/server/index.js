@@ -4,8 +4,7 @@ const app = express()
 const PORT = process.env.PORT;
 // const cors = require('cors')
 const router = require('./routes/index')
-// app.use(cors())
-app.use(express.json())
+// napp.use(express.json())
 
 app.use('/', router)
 
