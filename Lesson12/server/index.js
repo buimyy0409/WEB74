@@ -12,8 +12,8 @@ app.use(express.static("public"));
 app.use(express.json());
 
 app.use("/", router);
-app.use("/api/auth", authRoutes);
-app.use("/user", userRoutes);
+// app.use("/api/auth", authRoutes);
+// app.use("/user", userRoutes);
 
 app.use((err, req, res, next) => {
   res.status(err.statusCode || 500).send(err.message || "Something broke!");
