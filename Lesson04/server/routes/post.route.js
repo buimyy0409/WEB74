@@ -1,24 +1,20 @@
 const express = require('express')
 const router = express.Router();
+const {getAllPosts, getPostsBy, createAPost, createPosts} = require('../controllers/post.controller')
+const {requireAPIKeyByParams} = require('./../middlewares/apiKey.mdw')
+// CRUD
+router.get('/all/:apiKey', requireAPIKeyByParams, getAllPosts)
 
-const MOCK_DATA = [
-    {
-        title: 'Test',
-        des: 'Test'
-    },
-    {
-        title: 'Test 1',
-        des: 'Test 1'
-    }
-]
+router.post('/search', getPostsBy)
 
-router.get('/all', (req, res) => {
-    return res.json(MOCK_DATA)
-})
+router.post('/insertOne', createAPost)
 
+router.post('/createMany', createPosts)
 
-router.post('/create', (req, res) => {
-    return res.json('Create post')
-})
+// update by uname/fname/gender (uname)
+router.put('/update/:id', )
+
+// delete by uname/fname/gender (uname)
+router.delete('/delete/:id', )
 
 module.exports = router;
